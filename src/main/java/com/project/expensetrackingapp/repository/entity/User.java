@@ -1,14 +1,12 @@
 package com.project.expensetrackingapp.repository.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Data
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class User {
     private long id;
     private String username;
