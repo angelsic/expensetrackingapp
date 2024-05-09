@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService{
         Type setOfDTOsType = new TypeToken<List<UserResponse>>(){}.getType();
         return modelMapper.map(users, setOfDTOsType);
     }
-
+/*
     @Override
     public UserResponse updateUser(UserRequest userRequest) {
         if(userRequest.getUsername() == null){
@@ -102,5 +102,5 @@ public class UserServiceImpl implements UserService{
         }else{
             return username + " not exist";
         }
-    }
+    }*/
 }
