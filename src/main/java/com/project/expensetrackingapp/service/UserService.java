@@ -9,6 +9,6 @@ public interface UserService {
     UserResponse saveUser(UserRequest userRequest);
     UserResponse getUser(String username);
     List<UserResponse> getAllUser();
-    /*UserResponse updateUser(UserRequest userRequest);
-    String deleteUser(String username);*/
+    UserResponse updateUser(UserRequest userRequest);
+    String deleteUser(String username);
 }

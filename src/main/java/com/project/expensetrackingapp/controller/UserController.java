@@ -35,7 +35,7 @@ public class UserController {
         return ResponseEntity.ok().body(userResponse);
     }
 
-    /*@PatchMapping
+    @PatchMapping
     public ResponseEntity<UserResponse> updateUser(@RequestBody UserRequest userRequest){
         UserResponse userResponse = userService.updateUser(userRequest);
         return ResponseEntity.ok(userResponse);
@@ -44,6 +44,6 @@ public class UserController {
     @DeleteMapping(value = "/{username}")
     public String deleteUser(@PathVariable String username){
         return userService.deleteUser(username);
-    }*/
+    }
 
 }
