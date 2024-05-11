@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.Set;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,4 +14,5 @@ import lombok.ToString;
 public class UserResponse {
     private Long id;
     private String username;
+    private Set<UserRole> roles;
 }

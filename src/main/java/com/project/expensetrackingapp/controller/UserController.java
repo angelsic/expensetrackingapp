@@ -5,6 +5,7 @@ import com.project.expensetrackingapp.repository.entity.UserResponse;
 import com.project.expensetrackingapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Transactional
     @PostMapping
     public ResponseEntity<UserResponse> saveUser(@RequestBody UserRequest userRequest){
         UserResponse userResponse = userService.saveUser(userRequest);
@@ -27,9 +29,9 @@ public class UserController {
         return ResponseEntity.ok(userResponses);
     }
 
-    @GetMapping("/profile")
-    public ResponseEntity<UserResponse> getUserProfile() {
-        UserResponse userResponse = userService.getUser();
+    @GetMapping("/{username}")
+    public ResponseEntity<UserResponse> getUserProfile(@PathVariable String username) {
+        UserResponse userResponse = userService.getUser(username);
         return ResponseEntity.ok().body(userResponse);
     }
 
