@@ -1,8 +1,8 @@
 package com.project.expensetrackingapp.controller;
 
-import com.project.expensetrackingapp.repository.entity.UserRequest;
-import com.project.expensetrackingapp.repository.entity.UserResponse;
-import com.project.expensetrackingapp.service.UserService;
+import com.project.expensetrackingapp.repository.entity.user.UserRequest;
+import com.project.expensetrackingapp.repository.entity.user.UserResponse;
+import com.project.expensetrackingapp.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;

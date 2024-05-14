@@ -1,6 +1,6 @@
 package com.project.expensetrackingapp.utils;
 
-import com.project.expensetrackingapp.repository.entity.UserRole;
+import com.project.expensetrackingapp.repository.entity.role.UserRole;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
