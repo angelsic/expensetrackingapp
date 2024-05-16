@@ -12,6 +12,8 @@ import com.project.expensetrackingapp.exception.typefinance.TypeFinanceNotFound;
 import com.project.expensetrackingapp.repository.category.CategoryDatabaseStrategy;
 import com.project.expensetrackingapp.repository.entity.category.Category;
 import com.project.expensetrackingapp.repository.entity.finance.Finance;
+import com.project.expensetrackingapp.repository.entity.finance.FinanceReport;
+import com.project.expensetrackingapp.repository.entity.finance.FinanceResponse;
 import com.project.expensetrackingapp.repository.entity.portfolio.Portfolio;
 import com.project.expensetrackingapp.repository.entity.typefinance.TypeFinance;
 import com.project.expensetrackingapp.repository.finance.FinanceDatabaseStrategy;
@@ -181,7 +183,7 @@ public class FinanceServiceImpl implements  FinanceService{
     }
 
     @Override
-    public List<Finance> getFinanceByFilter(Long id, Long porfolioId, Long typeFinanceId
+    public List<FinanceResponse> getFinanceByFilter(Long id, Long porfolioId, Long typeFinanceId
             , Long categoryId, double initAmount, double endAmount
             , LocalDateTime start, LocalDateTime end) {
 
@@ -218,8 +220,23 @@ public class FinanceServiceImpl implements  FinanceService{
             }
             return matches;
         };
+
         return finances.stream()
                 .filter(predicate)
+                .map(finance -> new FinanceResponse(
+                        finance.getId(),
+                        finance.getPortfolio().getName(),
+                        finance.getTypeFinance().getName(),
+                        finance.getCategory().getName(),
+                        finance.getName(),
+                        finance.getAmount(),
+                        finance.getDateTime()
+                ))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<FinanceReport> getFinanceReport(LocalDateTime start, LocalDateTime end, Long id) {
+        return financeDatabaseStrategy.getFinanceReport(start, end, id);
     }
 }

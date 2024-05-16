@@ -1,15 +1,20 @@
 package com.project.expensetrackingapp.repository.finance;
 
 import com.project.expensetrackingapp.repository.entity.finance.Finance;
+import com.project.expensetrackingapp.repository.entity.finance.FinanceReport;
+import com.project.expensetrackingapp.repository.entity.typefinance.TypeFinance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Repository
@@ -35,6 +40,9 @@ public class FinanceMongoDatabaseStrategy implements FinanceDatabaseStrategy{
 
     @Override
     public Finance save(Finance entity) {
+        if(entity.getId() == 0) {
+            entity.setId(Math.abs(System.currentTimeMillis() + UUID.randomUUID().getMostSignificantBits()));
+        }
         return repository.save(entity);
     }
 
@@ -76,4 +84,24 @@ public class FinanceMongoDatabaseStrategy implements FinanceDatabaseStrategy{
         return repository.findByName(name);
     }
 
+    @Override
+    public List<FinanceReport> getFinanceReport(LocalDateTime start, LocalDateTime end, Long id) {
+        AggregationOperation match = Aggregation
+                .match(Criteria.where("dateTime").gte(start).lte(end)
+                        .and("portfolio.id").is(id));
+        AggregationOperation group = Aggregation
+                .group("typeFinance.name")
+                .sum("amount").as("amount");
+        AggregationOperation project = Aggregation.project()
+                .and("_id").as("typename")
+                .and("amount").as("amount")
+                .andExclude("_id");
+
+        TypedAggregation<Finance> aggregation = Aggregation
+                .newAggregation(Finance.class, match, group, project);
+
+        AggregationResults<FinanceReport> results = mongoTemplate
+                .aggregate(aggregation, "finance", FinanceReport.class);
+        return results.getMappedResults();
+    }
 }

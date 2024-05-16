@@ -1,13 +1,16 @@
 package com.project.expensetrackingapp.controller;
 
 import com.project.expensetrackingapp.repository.entity.finance.Finance;
+import com.project.expensetrackingapp.repository.entity.finance.FinanceReport;
 import com.project.expensetrackingapp.repository.entity.finance.FinanceRequest;
+import com.project.expensetrackingapp.repository.entity.finance.FinanceResponse;
 import com.project.expensetrackingapp.service.finance.FinanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -36,9 +39,21 @@ public class FinanceController {
         return ResponseEntity.ok().body(finance);
     }
 
+    @GetMapping("/report")
+    public ResponseEntity<List<FinanceReport>> getReport(@RequestParam String start,
+                                                   @RequestParam String end,
+                                                   @RequestParam Long id){
+        LocalDateTime startDatetime = LocalDateTime.parse(start);
+        LocalDateTime endDatetime = LocalDateTime.parse(end);
+        List<FinanceReport> financeReports = financeService.getFinanceReport(
+                startDatetime, endDatetime, id
+        );
+        return ResponseEntity.ok().body(financeReports);
+    }
+
     @PostMapping("/search")
-    public ResponseEntity<List<Finance>> searchFinances(@RequestBody FinanceRequest finance){
-        List<Finance> finances = financeService.getFinanceByFilter(
+    public ResponseEntity<List<FinanceResponse>> searchFinances(@RequestBody FinanceRequest finance){
+        List<FinanceResponse> finances = financeService.getFinanceByFilter(
                 finance.getId(), finance.getIdPortfolio(), finance.getIdTypeFinance()
                 , finance.getIdCategory(), finance.getInitAmount()
                 , finance.getEndAmount(), finance.getStart(), finance.getEnd()

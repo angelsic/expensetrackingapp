@@ -1,6 +1,7 @@
 package com.project.expensetrackingapp.repository.finance;
 
 import com.project.expensetrackingapp.repository.entity.finance.Finance;
+import com.project.expensetrackingapp.repository.entity.finance.FinanceReport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -66,4 +67,9 @@ public class FinancePostgresDatabaseStrategy implements FinanceDatabaseStrategy{
         return repository.findByName(name);
     }
 
+
+    @Override
+    public List<FinanceReport> getFinanceReport(LocalDateTime start, LocalDateTime end, Long id) {
+        return repository.getFinanceReport(start,end, id);
+    }
 }

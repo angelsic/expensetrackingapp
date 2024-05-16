@@ -1,6 +1,8 @@
 package com.project.expensetrackingapp.service.finance;
 
 import com.project.expensetrackingapp.repository.entity.finance.Finance;
+import com.project.expensetrackingapp.repository.entity.finance.FinanceReport;
+import com.project.expensetrackingapp.repository.entity.finance.FinanceResponse;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -18,5 +20,6 @@ public interface FinanceService {
     List<Finance> getFinanceByCategoryId (Long id);
     List<Finance> getFinanceByDatetimeBetween (LocalDateTime start, LocalDateTime end);
     List<Finance> getFinanceByAmountBetween (double init, double end);
-    List<Finance> getFinanceByFilter(Long id, Long porfolioId, Long typeFinanceId, Long categoryId, double initAmount, double endAmount, LocalDateTime start, LocalDateTime end);
+    List<FinanceResponse> getFinanceByFilter(Long id, Long portfolioId, Long typeFinanceId, Long categoryId, double initAmount, double endAmount, LocalDateTime start, LocalDateTime end);
+    List<FinanceReport> getFinanceReport(LocalDateTime start, LocalDateTime end, Long id);
 }

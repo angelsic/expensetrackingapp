@@ -11,7 +11,7 @@ import java.util.UUID;
 @Repository
 public class TypeFinanceMongoDatabaseStrategy implements TypeFinanceDatabaseStrategy{
     @Autowired
-    private TypeFinanceRepositoryPostgres repository;
+    private TypeFinanceRepositoryMongo repository;
 
     @Override
     public TypeFinance findByName(String name) {

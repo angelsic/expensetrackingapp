@@ -1,6 +1,7 @@
 package com.project.expensetrackingapp.repository.finance;
 
 import com.project.expensetrackingapp.repository.entity.finance.Finance;
+import com.project.expensetrackingapp.repository.entity.finance.FinanceReport;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.mongodb.core.query.Criteria;
 
@@ -21,4 +22,5 @@ public interface FinanceDatabaseStrategy {
     List<Finance> findByDateTimeBetween(LocalDateTime start, LocalDateTime end);
     List<Finance> findByAmountBetween(double init, double end);
     Finance findByName(String name);
+    List<FinanceReport> getFinanceReport(LocalDateTime start, LocalDateTime end, Long id);
 }
