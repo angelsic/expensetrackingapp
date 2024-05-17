@@ -1,0 +1,7 @@
+package com.project.expensetrackingapp.exception.auth;
+
+public class InvalidPasswordException extends RuntimeException{
+    public InvalidPasswordException(String message){
+        super(message);
+    }
+}

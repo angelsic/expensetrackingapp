@@ -14,6 +14,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -52,6 +53,9 @@ public class UserServiceImpl implements UserService{
 
         User newUser = userDatabaseStrategy.findByUsername(userRequest.getUsername());
         if(newUser == null){
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            String getPass = userRequest.getPassword();
+            String encodePass = encoder.encode(getPass);
             User user = modelMapper.map(userRequest, User.class);
             List<UserRole> allRoles = userRoleDatabaseStrategy.findAll();
             Set<UserRole> managedRoles = new HashSet<>();
@@ -63,6 +67,7 @@ public class UserServiceImpl implements UserService{
                 managedRoles.add(managedRole);
             }
             user.setRoles(managedRoles);
+            user.setPassword(encodePass);
             User savedUser = userDatabaseStrategy.save(user);
             return modelMapper.map(savedUser, UserResponse.class);
         }
@@ -93,7 +98,10 @@ public class UserServiceImpl implements UserService{
         User updUser = userDatabaseStrategy.findByUsername(userRequest.getUsername());
 
         if(updUser != null){
-            updUser.setPassword(user.getPassword());
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            String getPass = userRequest.getPassword();
+            String encodePass = encoder.encode(getPass);
+            updUser.setPassword(encodePass);
             updUser.setUsername(user.getUsername());
             List<UserRole> allRoles = userRoleDatabaseStrategy.findAll();
             Set<UserRole> managedRoles = new HashSet<>();
