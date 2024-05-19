@@ -8,6 +8,8 @@ import com.project.expensetrackingapp.repository.entity.user.UserRequest;
 import com.project.expensetrackingapp.repository.entity.user.UserResponse;
 import com.project.expensetrackingapp.security.jwt.JwtService;
 import com.project.expensetrackingapp.service.user.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,7 @@ import org.springframework.security.core.Authentication;
 
 @RestController
 @RequestMapping("/api/v1")
+@Tag(name = "Authentication Process")
 public class AuthenticationController {
 
     @Autowired
@@ -39,12 +42,14 @@ public class AuthenticationController {
 
     @Transactional
     @PostMapping(value = "/signup")
+    @Operation(summary = "Focuses on creating system users")
     public ResponseEntity<UserResponse> saveUser(@RequestBody UserRequest userRequest){
         UserResponse userResponse = userService.saveUser(userRequest);
         return ResponseEntity.ok(userResponse);
     }
 
     @PostMapping("/login")
+    @Operation(summary = "Allow or Denied User Access")
     public JwtResponseDTO AuthenticationAndGetToken(@RequestBody AuthRequestDTO authRequestDTO){
         try {
             Authentication authentication = authenticationManager
