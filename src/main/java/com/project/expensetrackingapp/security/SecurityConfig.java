@@ -52,6 +52,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/health","/error", "/api/v1/signup", "/api/v1/login")
                         .permitAll()
+                        .requestMatchers(AUTH_WHITELIST)
+                        .permitAll()
                         .anyRequest()
                         .authenticated())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -61,6 +63,13 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+    private static final String[] AUTH_WHITELIST = {
+      "/v3/api-docs/**",
+      "/v3/api-docs.yaml",
+      "/swagger-ui/**",
+      "/swagger-ui.html"
+    };
 
     @Bean
     public AuthenticationProvider authenticationProvider() {

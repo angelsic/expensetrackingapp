@@ -28,6 +28,10 @@ public class DatabaseConfig {
     @Value("${database.use}")
     private String dataSource;
 
+    public void setDataSource(String dataSource){
+        this.dataSource = dataSource;
+    }
+
     @Bean(name = "userStrategy")
     public UserDatabaseStrategy connectDatabaseUserStrategy(){
         if(dataSource.equals("mongo")){

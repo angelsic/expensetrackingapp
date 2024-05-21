@@ -42,7 +42,7 @@ public class JwtService {
         return claimsResolver.apply(claims);
     }
 
-    private Claims extractAllClaims(String token) {
+    public Claims extractAllClaims(String token) {
         try {
             return Jwts
                     .parserBuilder()
@@ -55,7 +55,7 @@ public class JwtService {
         }
     }
 
-    private Claims handleJwtException(Exception ex) {
+    public Claims handleJwtException(Exception ex) {
         String errorMessage;
         HttpStatus status;
 
@@ -79,7 +79,7 @@ public class JwtService {
         throw new JwtException(errorMessage, status);
     }
 
-    private Boolean isTokenExpired(String token) {
+    public Boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
 
@@ -93,7 +93,7 @@ public class JwtService {
         return createToken(claims, username);
     }
 
-    private String createToken(Map<String, Object> claims, String username) {
+    public String createToken(Map<String, Object> claims, String username) {
         Instant now = Instant.now();
         Instant expirationInstant = now.plus(Duration.ofMillis(expiration));
         return Jwts.builder()
@@ -104,7 +104,7 @@ public class JwtService {
                 .signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
     }
 
-    private Key getSignKey() {
+    public Key getSignKey() {
         byte[] keyBytes = Decoders.BASE64.decode(secretK);
         return Keys.hmacShaKeyFor(keyBytes);
     }
