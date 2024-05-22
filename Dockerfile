@@ -1,7 +1,7 @@
 #
 # Build stage
 #
-FROM maven:3.8.8-jdk17.0.10 AS build
+FROM maven:3.8.3-openjdk-17 AS build
 COPY . .
 RUN mvn clean package -Pprod -DskipTests
 
