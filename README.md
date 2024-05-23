@@ -8,7 +8,7 @@ In this you can Create, Read, Update and Delete (CRUD):
 * Users Management
 
 # Architecture Diagram
-![alt text](https://github.com/angelsic/expensetrackingapp/tree/[branch]/blob/ADExpenseTrackingApp.png?raw=true)
+![alt text](https://github.com/angelsic/expensetrackingapp/blob/main/blob/ADExpenseTrackingApp.png?raw=true)
 
 # JWT Authentication
 Uses JWT Authentication to allow acces only to users created within the application.
@@ -31,7 +31,7 @@ You can connect spring boot application with:
 * Postgres
 
 # ER Model
-![alt text](https://github.com/angelsic/expensetrackingapp/tree/[branch]/blob/ERExpenseTrackingApp.png?raw=true)
+![alt text](https://github.com/angelsic/expensetrackingapp/blob/main/blob/ERExpenseTrackingApp.png?raw=true)
 
 
 
