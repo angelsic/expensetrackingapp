@@ -29,6 +29,10 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * Manage Finance CRUD Implementation Data
+ * @author Angel Sic
+ */
 @Service
 public class FinanceServiceImpl implements  FinanceService{
 

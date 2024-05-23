@@ -8,6 +8,10 @@ import lombok.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Entity for User id, username, password and roles
+ * @author Angel Sic
+ */
 @Entity(name = "users")
 @Data
 @ToString

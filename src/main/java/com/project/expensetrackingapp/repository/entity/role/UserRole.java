@@ -6,6 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * Entity for User Role id and name
+ * @author Angel Sic
+ */
 @Entity(name = "roles")
 @Data
 @ToString

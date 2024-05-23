@@ -9,6 +9,10 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
+/**
+ * Entity for Finance Id, Portfolio, TypeFinance, Category, name, amount and dateTime
+ * @author Angel Sic
+ */
 @Entity(name = "finance")
 @Data
 @ToString

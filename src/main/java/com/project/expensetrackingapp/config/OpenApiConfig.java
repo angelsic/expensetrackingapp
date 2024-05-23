@@ -11,6 +11,10 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Set OpenApi configuration and add Authorization for swagger documentation
+ * @author Angel Sic
+ */
 @Configuration
 @OpenAPIDefinition(
         info = @io.swagger.v3.oas.annotations.info.Info(
@@ -21,6 +25,10 @@ import org.springframework.context.annotation.Configuration;
 )
 public class OpenApiConfig {
 
+        /**
+         * Set bearer Authentication schema for swagger documentation
+         * @return OpenApi configuration
+         */
         @Bean
         public OpenAPI customOpenApi(){
                 final String securitySchemeName = "bearerAuth";

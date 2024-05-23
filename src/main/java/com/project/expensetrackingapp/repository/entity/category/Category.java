@@ -3,6 +3,10 @@ package com.project.expensetrackingapp.repository.entity.category;
 import jakarta.persistence.*;
 import lombok.*;
 
+/**
+ * Entity for Category Id and name
+ * @author Angel Sic
+ */
 @Entity(name = "category")
 @Data
 @ToString

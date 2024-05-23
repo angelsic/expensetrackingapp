@@ -11,6 +11,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Finance Database Strategy Interface
+ * @author Angel Sic
+ */
 public interface FinanceDatabaseStrategy {
     List<Finance> findByPortfolioId(Long id);
     List<Finance> findAll();

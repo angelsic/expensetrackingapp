@@ -4,6 +4,10 @@ import com.project.expensetrackingapp.repository.entity.category.Category;
 
 import java.util.List;
 
+/**
+ * Category Service Interface
+ * @author Angel Sic
+ */
 public interface CategoryService {
     Category saveCategory(Category category);
     Category getCategory(String name);

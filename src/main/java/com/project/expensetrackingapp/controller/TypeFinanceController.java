@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Type Finance Controller
+ * Base url: /api/v1/typefinances
+ * Indicates types of finances such as income, expenses, etc.
+ * @author Angel Sic
+ */
 @RestController
 @RequestMapping("/api/v1/typefinances")
 @Tag(name = "Type Finance CRUD")
@@ -48,6 +54,12 @@ public class TypeFinanceController {
         return ResponseEntity.ok(typeFinanceResult);
     }
 
+    /**
+     * Allows to Delete Type Finance Information by name
+     * Url: /{name}
+     * @param name Type Finance Name
+     * @return Message indicating the result of the Operation
+     */
     @DeleteMapping(value = "/{name}")
     @Operation(summary = "Delete type of finances")
     public String deleteTypeFinance(@PathVariable String name){

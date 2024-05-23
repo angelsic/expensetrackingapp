@@ -7,6 +7,11 @@ import lombok.ToString;
 
 import java.time.LocalDateTime;
 
+/**
+ * Entity for Finance Request id, idPortfolio, idTypeFinance
+ * , idCategory, initAmount, endAmount, start and end Datetime
+ * @author Angel Sic
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

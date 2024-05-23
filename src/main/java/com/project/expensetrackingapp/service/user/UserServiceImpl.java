@@ -23,6 +23,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Manage User CRUD Implementation Data
+ * @author Angel Sic
+ */
 @Service
 public class UserServiceImpl implements UserService{
 

@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Type Finance Postgres Database Strategy access
+ * @author Angel Sic
+ */
 @Repository
 public class TypeFinancePostgresDatabaseStrategy implements TypeFinanceDatabaseStrategy{
     @Autowired

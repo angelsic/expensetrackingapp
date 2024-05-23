@@ -8,6 +8,10 @@ import lombok.ToString;
 
 import java.util.Set;
 
+/**
+ * Entity for User Response id, username and roles
+ * @author Angel Sic
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

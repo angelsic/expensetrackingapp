@@ -3,6 +3,10 @@ package com.project.expensetrackingapp.repository.entity.typefinance;
 import jakarta.persistence.*;
 import lombok.*;
 
+/**
+ * Entity for Type Finance id and name
+ * @author Angel Sic
+ */
 @Entity(name = "type_finance")
 @Data
 @ToString

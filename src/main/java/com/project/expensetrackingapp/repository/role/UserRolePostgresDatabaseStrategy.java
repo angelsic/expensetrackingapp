@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * User Role Postgres Database Strategy access
+ * @author Angel Sic
+ */
 public class UserRolePostgresDatabaseStrategy implements UserRoleDatabaseStrategy{
 
     @Autowired

@@ -17,6 +17,10 @@ import org.springframework.stereotype.Service;
 import javax.naming.NameNotFoundException;
 import java.util.List;
 
+/**
+ * Manage Portfolio CRUD Implementation Data
+ * @author Angel Sic
+ */
 @Service
 public class PortfolioServiceImpl implements PortfolioService{
 

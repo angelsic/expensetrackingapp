@@ -20,6 +20,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+/**
+ * Manage JWT Service to manage claims and token data
+ * @author Angel Sic
+ */
 @Component
 public class JwtService {
 
@@ -29,19 +33,41 @@ public class JwtService {
     @Value("${app.jwtExpirationMs}")
     private int expiration;
 
+    /**
+     * Extract Username form Token
+     * @param token Token access
+     * @return Username
+     */
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
+    /**
+     * Extract Expiration Date
+     * @param token Token access
+     * @return Date expiration
+     */
     public Date extractExpiration(String token) {
         return extractClaim(token, Claims::getExpiration);
     }
 
+    /**
+     * Extract Claims from Token
+     * @param token Token access
+     * @param claimsResolver Claims Resolver
+     * @return Claims Data
+     * @param <T> Object
+     */
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
 
+    /**
+     * Extract all Claims method
+     * @param token Token access
+     * @return Claims data
+     */
     public Claims extractAllClaims(String token) {
         try {
             return Jwts
@@ -55,6 +81,11 @@ public class JwtService {
         }
     }
 
+    /**
+     * Custom Handler JWT Exception
+     * @param ex Type of Exception
+     * @return Throw Exception
+     */
     public Claims handleJwtException(Exception ex) {
         String errorMessage;
         HttpStatus status;
@@ -79,20 +110,42 @@ public class JwtService {
         throw new JwtException(errorMessage, status);
     }
 
+    /**
+     * Validate if token is expired
+     * @param token Token access
+     * @return Boolean if token is expired or not
+     */
     public Boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
 
+    /**
+     * Validate Token
+     * @param token Token access
+     * @param userDetails User Details Data
+     * @return Boolean if token is correct or not
+     */
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
+    /**
+     * Map token generation
+     * @param username Username data
+     * @return Get back Token
+     */
     public String GenerateToken(String username){
         Map<String, Object> claims = new HashMap<>();
         return createToken(claims, username);
     }
 
+    /**
+     * Create Token with Jwts builder
+     * @param claims Claims data
+     * @param username Username data
+     * @return String Token access
+     */
     public String createToken(Map<String, Object> claims, String username) {
         Instant now = Instant.now();
         Instant expirationInstant = now.plus(Duration.ofMillis(expiration));
@@ -104,6 +157,10 @@ public class JwtService {
                 .signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
     }
 
+    /**
+     * Generate Sign from Key configuration
+     * @return Get back Sign key
+     */
     public Key getSignKey() {
         byte[] keyBytes = Decoders.BASE64.decode(secretK);
         return Keys.hmacShaKeyFor(keyBytes);

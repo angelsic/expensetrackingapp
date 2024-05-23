@@ -17,6 +17,10 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * Finance Mongodb Database Strategy access
+ * @author Angel Sic
+ */
 @Repository
 public class FinanceMongoDatabaseStrategy implements FinanceDatabaseStrategy{
 

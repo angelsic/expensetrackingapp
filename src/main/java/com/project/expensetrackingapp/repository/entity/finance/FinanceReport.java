@@ -5,6 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * Entity for typename and amount
+ * @author Angel Sic
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

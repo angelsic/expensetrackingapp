@@ -9,6 +9,10 @@ import lombok.NoArgsConstructor;
 import java.time.Instant;
 import java.util.Date;
 
+/**
+ * Entity for accessToken and expiredDate
+ * @author Angel Sic
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

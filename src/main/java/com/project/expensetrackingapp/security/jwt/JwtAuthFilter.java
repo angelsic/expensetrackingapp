@@ -16,6 +16,10 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+/**
+ * JwtAuthFilter allows to filter all request to give access application
+ * @author Angel Sic
+ */
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
 
@@ -25,6 +29,14 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     @Autowired
     UserDetailsServiceImpl userDetailsServiceImpl;
 
+    /**
+     * Validate JWT bearer information to give user access
+     * @param request Http Request
+     * @param response Http Response
+     * @param filterChain Filter configuration
+     * @throws ServletException Servlet Exception
+     * @throws IOException Input/Output Exception
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String authHeader = request.getHeader("Authorization");

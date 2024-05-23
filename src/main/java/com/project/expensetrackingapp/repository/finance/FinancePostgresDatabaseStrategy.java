@@ -11,6 +11,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Finance Postgres Database Strategy access
+ * @author Angel Sic
+ */
 @Repository
 public class FinancePostgresDatabaseStrategy implements FinanceDatabaseStrategy{
 

@@ -12,6 +12,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Manage Type Finance CRUD Implementation Data
+ * @author Angel Sic
+ */
 @Service
 public class TypeFinanceServiceImpl implements TypeFinanceService{
 

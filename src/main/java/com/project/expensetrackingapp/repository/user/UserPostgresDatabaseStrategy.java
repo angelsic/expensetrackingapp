@@ -7,6 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * User Postgres Database Strategy access
+ * @author Angel Sic
+ */
 @Repository
 public class UserPostgresDatabaseStrategy implements UserDatabaseStrategy {
 
