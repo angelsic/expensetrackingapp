@@ -5,6 +5,10 @@ import com.project.expensetrackingapp.repository.entity.user.UserResponse;
 
 import java.util.List;
 
+/**
+ * User Service Interface
+ * @author Angel Sic
+ */
 public interface UserService {
     UserResponse saveUser(UserRequest userRequest);
     UserResponse getUser(String username);

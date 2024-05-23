@@ -12,6 +12,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
+/**
+ * Manage User Detail Service Implementation
+ * @author Angel Sic
+ */
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {
     private UserDatabaseStrategy userDatabaseStrategy;

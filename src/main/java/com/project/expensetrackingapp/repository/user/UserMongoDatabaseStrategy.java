@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * User Mongodb Database Strategy access
+ * @author Angel Sic
+ */
 @Repository
 public class UserMongoDatabaseStrategy implements UserDatabaseStrategy {
 

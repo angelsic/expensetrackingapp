@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * Type Finance Mongodb Database Strategy access
+ * @author Angel Sic
+ */
 @Repository
 public class TypeFinanceMongoDatabaseStrategy implements TypeFinanceDatabaseStrategy{
     @Autowired

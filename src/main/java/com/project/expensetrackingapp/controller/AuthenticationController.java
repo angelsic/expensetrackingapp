@@ -23,6 +23,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.core.Authentication;
 
+/**
+ * Authentication Controller
+ * Base url: /api/v1
+ * Use for login and sign as new user application
+ * @author Angel Sic
+ */
 @RestController
 @RequestMapping("/api/v1")
 @Tag(name = "Authentication Process")
@@ -40,6 +46,12 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    /**
+     * Allows to sign up as new user application
+     * Url: /signup
+     * @param userRequest UserRequest structure
+     * @return UserResponse entity information
+     */
     @Transactional
     @PostMapping(value = "/signup")
     @Operation(summary = "Focuses on creating system users")
@@ -48,6 +60,12 @@ public class AuthenticationController {
         return ResponseEntity.ok(userResponse);
     }
 
+    /**
+     * Allow to login into application with username and password
+     * Url: /login
+     * @param authRequestDTO Authentication request
+     * @return Json Response with token and expiration Date
+     */
     @PostMapping("/login")
     @Operation(summary = "Allow or Denied User Access")
     public JwtResponseDTO AuthenticationAndGetToken(@RequestBody AuthRequestDTO authRequestDTO){

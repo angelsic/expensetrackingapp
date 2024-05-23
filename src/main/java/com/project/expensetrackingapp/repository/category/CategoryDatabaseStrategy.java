@@ -5,6 +5,10 @@ import com.project.expensetrackingapp.repository.entity.category.Category;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Category Database Strategy Interface
+ * @author Angel Sic
+ */
 public interface CategoryDatabaseStrategy {
     Category findByName(String name);
     List<Category> findAll();

@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entity for username and password
+ * @author Angel Sic
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

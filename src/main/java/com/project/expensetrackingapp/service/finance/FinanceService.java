@@ -9,6 +9,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Finance Service Interface
+ * @author Angel Sic
+ */
 public interface FinanceService {
     List<Finance> getFinanceByPortfolioId(Long id);
     List<Finance> getAllFinance();

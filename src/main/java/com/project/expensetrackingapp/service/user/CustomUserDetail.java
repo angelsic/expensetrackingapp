@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Manage Custom User Detail Data
+ * @author Angel Sic
+ */
 public class CustomUserDetail extends User implements UserDetails {
 
     private String username;

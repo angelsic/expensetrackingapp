@@ -7,6 +7,11 @@ import lombok.ToString;
 
 import java.time.LocalDateTime;
 
+/**
+ * Entity for Finance Response id, portfolioName, typeFinanceName
+ * , categoryName, name, amount and dateTime
+ * @author Angel Sic
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

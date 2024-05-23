@@ -5,6 +5,10 @@ import com.project.expensetrackingapp.repository.entity.typefinance.TypeFinance;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Type Finance Database Strategy Interface
+ * @author Angel Sic
+ */
 public interface TypeFinanceDatabaseStrategy {
     TypeFinance findByName(String name);
     List<TypeFinance> findAll();

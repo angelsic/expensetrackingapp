@@ -4,6 +4,10 @@ import com.project.expensetrackingapp.repository.entity.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
+/**
+ * Entity for Portfolio id, name and User
+ * @author Angel Sic
+ */
 @Entity(name = "portfolio")
 @Data
 @ToString

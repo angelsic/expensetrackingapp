@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * Portfolio Mongodb Database Strategy access
+ * @author Angel Sic
+ */
 @Repository
 public class PortfolioMongoDatabaseStrategy implements PortfolioDatabaseStrategy {
 

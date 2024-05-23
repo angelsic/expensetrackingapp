@@ -11,6 +11,10 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Finance Mongodb Connection Interface
+ * @author Angel Sic
+ */
 @Repository
 public interface FinanceRepositoryMongo extends MongoRepository<Finance, Long> {
     List<Finance> findByPortfolioId(Long id);

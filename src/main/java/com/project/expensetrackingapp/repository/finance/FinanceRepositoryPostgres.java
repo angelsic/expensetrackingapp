@@ -12,6 +12,10 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Finance Postgres Connection Interface
+ * @author Angel Sic
+ */
 @Repository
 public interface FinanceRepositoryPostgres extends CrudRepository<Finance, Long> {
     List<Finance> findByPortfolioId(Long id);

@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
+/**
+ * Handler Exception for Authentication Controller
+ * @author Angel Sic
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

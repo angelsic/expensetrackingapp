@@ -6,6 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * Handler Exception for Finance Controller
+ * @author Angel Sic
+ */
 @RestControllerAdvice
 public class FinanceHandlerException {
     @ExceptionHandler(AmountNotFound.class)

@@ -22,12 +22,22 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * DatabaseConfig allows to define project database source,
+ * depends of database.use in application.properties file.
+ * Sets the information source for all repositories
+ * @author Angel Sic
+ */
 @Configuration
 public class DatabaseConfig {
 
     @Value("${database.use}")
     private String dataSource;
 
+    /**
+     * Define dataSource type inside application
+     * @param dataSource
+     */
     public void setDataSource(String dataSource){
         this.dataSource = dataSource;
     }

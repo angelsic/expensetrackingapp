@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * User Role Mongodb Database Strategy access
+ * @author Angel Sic
+ */
 public class UserRoleMongoDatabaseStrategy implements UserRoleDatabaseStrategy{
 
     @Autowired

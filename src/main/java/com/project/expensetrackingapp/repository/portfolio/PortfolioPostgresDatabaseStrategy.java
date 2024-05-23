@@ -9,6 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Portfolio Postgres Database Strategy access
+ * @author Angel Sic
+ */
 @Repository
 public class PortfolioPostgresDatabaseStrategy implements PortfolioDatabaseStrategy{
 

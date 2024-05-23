@@ -2,6 +2,10 @@ package com.project.expensetrackingapp.exception;
 
 import org.springframework.http.HttpStatus;
 
+/**
+ * Manage exception when JSON Web Token is incorrect
+ * @author Angel Sic
+ */
 public class JwtException extends RuntimeException {
     private final HttpStatus status;
 
